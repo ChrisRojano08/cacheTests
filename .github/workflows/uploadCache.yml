@@ -1,0 +1,19 @@
+on:
+  push:
+    branches: [uploadCache]
+
+
+name: Cache Example
+
+jobs:
+  cache-upload:
+    name: Upload Cache File
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: wget https://softitlan.com/taskmanager/resources/img/uploads/cuponealo-logo-105.png -O logoCache.png
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ~/cache/
+          key: ${{ github.sha }}
