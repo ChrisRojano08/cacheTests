@@ -1,0 +1,19 @@
+on:
+  pull_request:
+    branches: [dev]
+
+name: Cache use
+
+jobs:
+
+  cache-use:
+    name: Re-use Cache
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ~/cache/
+          key: ${{ github.sha }}
+      - run: ls
