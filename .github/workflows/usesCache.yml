@@ -16,5 +16,5 @@ jobs:
         with:
           path: ~/cache/
           key: a0942d71db15b0a7872b00577f88916493707e9b
-      - run: ls
+      - run: ls ~/cache/
       - run: echo 'webos xd'
