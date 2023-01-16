@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    branches: [dev]
+
+name: Cache use
+
+jobs:
+
+  cache-use:
+    name: Re-use Cache
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/cache@v2
+        id: restore-build
+        with:
+          path: ~/cache/
+          key: a0942d71db15b0a7872b00577f88916493707e9b
+      - run: sudo apt install tree
+      - run: tree ~/
+      - run: echo 'webos xd'
